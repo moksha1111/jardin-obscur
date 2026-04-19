@@ -1,0 +1,8 @@
+{
+  "name": "jardin-obscur",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "npm install --prefix server && cd client && npm install --include=dev && npm run build"
+  }
+}
