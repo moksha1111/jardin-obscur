@@ -255,11 +255,7 @@ export default function AdminVisitorsPage() {
                   <td className="px-4 py-3 text-burgundy-900/80">{v.browser}</td>
                   <td className="px-4 py-3 text-burgundy-900/80">{v.os}</td>
                   <td className="px-4 py-3">
-                    <span className={`inline-block px-2 py-0.5 text-[10px] uppercase tracking-widest font-medium ${
-                      v.device === 'Mobile' ? 'bg-gold-400/30 text-burgundy-800' :
-                      v.device === 'Tablet' ? 'bg-cream-200 text-burgundy-800' :
-                      'bg-burgundy-100 text-burgundy-800'
-                    }`}>{v.device}</span>
+                    <span className="inline-block px-2 py-0.5 text-[10px] uppercase tracking-widest font-medium bg-gold-400/30 text-burgundy-800">{v.device}</span>
                   </td>
                   <td className="px-4 py-3 text-burgundy-900/70 max-w-[200px] truncate" title={v.page}>{v.page}</td>
                   <td className="px-4 py-3 text-burgundy-900/60 text-xs">{v.isp}</td>

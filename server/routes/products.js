@@ -10,11 +10,21 @@ router.get('/', asyncHandler(async (req, res) => {
   const category = req.query.category ? { category: req.query.category } : {};
   const minPrice = req.query.minPrice ? { price: { $gte: Number(req.query.minPrice) } } : {};
   const maxPrice = req.query.maxPrice ? { price: { $lte: Number(req.query.maxPrice) } } : {};
-  const filter = { ...keyword, ...category, ...minPrice, ...maxPrice };
+  const featured = req.query.featured === 'true' ? { featured: true } : {};
+  const filter = { ...keyword, ...category, ...minPrice, ...maxPrice, ...featured };
+
+  const sortMap = {
+    price_asc: { price: 1 },
+    price_desc: { price: -1 },
+    newest: { createdAt: -1 },
+    rating: { rating: -1 },
+  };
+  const sort = sortMap[req.query.sort] || { featured: -1, createdAt: -1 };
+
   const page = Number(req.query.page) || 1;
   const limit = Number(req.query.limit) || 12;
   const count = await Product.countDocuments(filter);
-  const products = await Product.find(filter).limit(limit).skip(limit * (page - 1)).sort({ createdAt: -1 });
+  const products = await Product.find(filter).sort(sort).limit(limit).skip(limit * (page - 1));
   res.json({ products, page, pages: Math.ceil(count / limit), total: count });
 }));
 
