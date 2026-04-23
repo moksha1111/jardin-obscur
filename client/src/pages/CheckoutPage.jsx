@@ -73,7 +73,7 @@ export default function CheckoutPage() {
             </div>
 
             <button type="submit" disabled={loading} className="w-full bg-burgundy-700 text-cream-50 py-4 text-xs uppercase tracking-[0.3em] font-medium hover:bg-burgundy-800 disabled:opacity-50 transition-colors">
-              {loading ? 'Placing Order...' : `Place Order — $${totalPrice.toFixed(2)}`}
+              {loading ? 'Placing Order...' : `Place Order — EGP ${totalPrice.toFixed(2)}`}
             </button>
           </form>
 
@@ -84,15 +84,15 @@ export default function CheckoutPage() {
               {items.map(i => (
                 <div key={i.product} className="flex justify-between text-sm">
                   <span className="text-burgundy-900/80 line-clamp-1 flex-1">{i.name} × {i.qty}</span>
-                  <span className="font-medium text-burgundy-900 ml-4">${(i.price * i.qty).toFixed(2)}</span>
+                  <span className="font-medium text-burgundy-900 ml-4">EGP {(i.price * i.qty).toFixed(2)}</span>
                 </div>
               ))}
             </div>
             <div className="border-t border-burgundy-900/20 pt-4 space-y-2 text-sm">
-              <div className="flex justify-between text-burgundy-900/80"><span>Subtotal</span><span>${itemsPrice.toFixed(2)}</span></div>
-              <div className="flex justify-between text-burgundy-900/80"><span>Shipping</span><span>{shippingPrice === 0 ? 'Free' : `$${shippingPrice.toFixed(2)}`}</span></div>
-              <div className="flex justify-between text-burgundy-900/80"><span>Tax</span><span>${taxPrice.toFixed(2)}</span></div>
-              <div className="border-t border-burgundy-900/20 pt-2 flex justify-between font-display text-xl text-burgundy-900"><span>Total</span><span>${totalPrice.toFixed(2)}</span></div>
+              <div className="flex justify-between text-burgundy-900/80"><span>Subtotal</span><span>EGP {itemsPrice.toFixed(2)}</span></div>
+              <div className="flex justify-between text-burgundy-900/80"><span>Shipping</span><span>{shippingPrice === 0 ? 'Free' : `EGP ${shippingPrice.toFixed(2)}`}</span></div>
+              <div className="flex justify-between text-burgundy-900/80"><span>Tax</span><span>EGP {taxPrice.toFixed(2)}</span></div>
+              <div className="border-t border-burgundy-900/20 pt-2 flex justify-between font-display text-xl text-burgundy-900"><span>Total</span><span>EGP {totalPrice.toFixed(2)}</span></div>
             </div>
           </div>
         </div>

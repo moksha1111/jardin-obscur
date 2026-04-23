@@ -65,7 +65,7 @@ export default function CartPage() {
                     {item.name}
                   </h3>
                   <p className="font-display text-lg text-burgundy-800">
-                    ${item.price?.toFixed(2)}
+                    EGP {item.price?.toFixed(2)}
                   </p>
                   <div className="flex items-center gap-4 mt-4">
                     <div className="flex items-center border border-burgundy-900/30">
@@ -99,7 +99,7 @@ export default function CartPage() {
                 </div>
                 <div className="text-right">
                   <span className="font-display text-xl text-burgundy-900">
-                    ${(item.price * item.qty).toFixed(2)}
+                    EGP {(item.price * item.qty).toFixed(2)}
                   </span>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export default function CartPage() {
             <div className="space-y-3 text-sm mb-6">
               <div className="flex justify-between text-burgundy-900/80">
                 <span>Subtotal</span>
-                <span>${subtotal.toFixed(2)}</span>
+                <span>EGP{subtotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between text-burgundy-900/80">
                 <span>Shipping</span>
@@ -122,22 +122,22 @@ export default function CartPage() {
                   {shipping === 0 ? (
                     <span className="text-gold-600 font-medium">Free</span>
                   ) : (
-                    `$${shipping.toFixed(2)}`
+                    `EGP ${shipping.toFixed(2)}`
                   )}
                 </span>
               </div>
               <div className="flex justify-between text-burgundy-900/80">
                 <span>Tax (8%)</span>
-                <span>${tax.toFixed(2)}</span>
+                <span>EGP {tax.toFixed(2)}</span>
               </div>
               <div className="border-t border-burgundy-900/20 pt-3 flex justify-between font-display text-2xl text-burgundy-900">
                 <span>Total</span>
-                <span>${total.toFixed(2)}</span>
+                <span>EGP{total.toFixed(2)}</span>
               </div>
             </div>
             {subtotal < 50 && (
               <p className="text-xs text-burgundy-800 bg-cream-200 p-3 mb-4 italic">
-                Add ${(50 - subtotal).toFixed(2)} more for free shipping.
+                Add EGP{(50 - subtotal).toFixed(2)} more for free shipping.
               </p>
             )}
             <Link

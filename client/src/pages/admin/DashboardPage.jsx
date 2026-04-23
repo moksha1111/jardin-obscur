@@ -39,7 +39,7 @@ export default function DashboardPage() {
     { label: 'Total Orders', value: stats?.orders, icon: ShoppingBagIcon, color: 'bg-burgundy-800' },
     { label: 'Pending Orders', value: stats?.pending, icon: ClockIcon, color: 'bg-gold-600' },
     { label: 'Total Customers', value: stats?.users, icon: UsersIcon, color: 'bg-burgundy-600' },
-    { label: 'Total Revenue', value: `$${stats?.revenue?.toFixed(2)}`, icon: CurrencyDollarIcon, color: 'bg-gold-500' },
+    { label: 'Total Revenue', value: `EGP ${stats?.revenue?.toFixed(2)}`, icon: CurrencyDollarIcon, color: 'bg-gold-500' },
   ];
 
   return (

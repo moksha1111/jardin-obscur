@@ -42,7 +42,7 @@ export default function OrdersPage() {
                   </div>
                   <div className="text-right">
                     <span className={`inline-block px-3 py-1 text-[10px] uppercase tracking-[0.25em] font-medium ${STATUS_COLORS[order.status] || 'bg-cream-200 text-burgundy-800'}`}>{order.status}</span>
-                    <p className="font-display text-2xl text-burgundy-900 mt-2">${order.totalPrice?.toFixed(2)}</p>
+                    <p className="font-display text-2xl text-burgundy-900 mt-2">EGP {order.totalPrice?.toFixed(2)}</p>
                     <p className="text-xs text-burgundy-900/50">{order.items?.length} item(s)</p>
                   </div>
                 </div>

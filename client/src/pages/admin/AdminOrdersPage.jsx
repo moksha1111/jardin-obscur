@@ -53,7 +53,7 @@ export default function AdminOrdersPage() {
                     <p className="text-burgundy-900/50 text-xs">{order.user?.email}</p>
                   </td>
                   <td className="px-4 py-3 text-burgundy-900/70">{new Date(order.createdAt).toLocaleDateString()}</td>
-                  <td className="px-4 py-3 font-display text-lg text-burgundy-900">${order.totalPrice?.toFixed(2)}</td>
+                  <td className="px-4 py-3 font-display text-lg text-burgundy-900">EGP {order.totalPrice?.toFixed(2)}</td>
                   <td className="px-4 py-3">
                     <select
                       value={order.status}

@@ -11,12 +11,15 @@ const app = express();
 app.use(cors({ origin: process.env.NODE_ENV === 'production' ? false : 'http://localhost:5193', credentials: true }));
 app.use(express.json());
 
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/users', require('./routes/users'));
 app.use('/api/products', require('./routes/products'));
 app.use('/api/cart', require('./routes/cart'));
 app.use('/api/orders', require('./routes/orders'));
 app.use('/api/visitors', require('./routes/visitors'));
+app.use('/api/upload', require('./routes/upload'));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/dist')));

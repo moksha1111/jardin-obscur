@@ -13,6 +13,10 @@ client/dist/
 client/dist-ssr/
 server/dist/
 
+# Uploaded user files (keep folder via .gitkeep, ignore contents)
+server/uploads/*
+!server/uploads/.gitkeep
+
 # Logs
 logs/
 *.log

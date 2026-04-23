@@ -16,13 +16,15 @@ import {
 } from "@heroicons/react/24/outline";
 
 const CATEGORIES = [
-  { name: "Lips", img: "/lipsticks/1.jpg", link: "/products?category=Lips" },
-  { name: "Eyes", img: "/eyes.jpg", link: "/products?category=Eyes" },
-  { name: "Face", img: "/face.jpg", link: "/products?category=Face" },
   {
-    name: "Skincare",
-    img: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&q=85",
-    link: "/products?category=Skincare",
+    name: "Lipgloss",
+    img: "/lipgloss.jpg",
+    link: "/products?category=Lipgloss",
+  },
+  {
+    name: "Body Splash",
+    img: "/bodysplash.jpg",
+    link: "/products?category=Body%20Splash",
   },
 ];
 
@@ -53,7 +55,7 @@ const GALLERY_ROWS = [
   [
     {
       type: "img",
-      src: "https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?w=600&q=80",
+      src: "/10.jpg",
     },
     {
       type: "quote",
@@ -62,17 +64,17 @@ const GALLERY_ROWS = [
     },
     {
       type: "img",
-      src: "https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?w=600&q=80",
+      src: "/9.jpg",
     },
   ],
   [
     {
       type: "img",
-      src: "https://images.unsplash.com/photo-1522337660859-02fbefca4702?w=600&q=80",
+      src: "/12.jpg",
     },
     {
       type: "img",
-      src: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=600&q=80",
+      src: "/13.jpg",
     },
     { type: "quote", text: "Best Sellers", label: "FAVOURITES" },
   ],
@@ -84,11 +86,11 @@ const GALLERY_ROWS = [
     },
     {
       type: "img",
-      src: "https://images.unsplash.com/photo-1523206489230-c012c64b2b48?w=600&q=80",
+      src: "/14.jpg",
     },
     {
       type: "img",
-      src: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&q=80",
+      src: "/15.jpg",
     },
   ],
 ];
@@ -112,14 +114,12 @@ function FilterSidebar() {
           Category
         </h4>
         <ul className="space-y-2 text-sm">
-          {["All", "Lips", "Eyes", "Face", "Skincare", "New Arrivals"].map(
-            (c) => (
-              <li key={c} className="flex items-center gap-2">
-                <input type="checkbox" className="accent-burgundy-700" />
-                <span>{c}</span>
-              </li>
-            )
-          )}
+          {["All", "Lipgloss", "Body Splash", "New Arrivals"].map((c) => (
+            <li key={c} className="flex items-center gap-2">
+              <input type="checkbox" className="accent-burgundy-700" />
+              <span>{c}</span>
+            </li>
+          ))}
         </ul>
       </div>
       <div>
@@ -135,9 +135,9 @@ function FilterSidebar() {
           className="w-full accent-burgundy-700"
         />
         <div className="flex justify-between text-xs text-burgundy-900/70 mt-1">
-          <span>$0</span>
-          <span>${price}</span>
-          <span>$150+</span>
+          <span>EGP 0</span>
+          <span>EGP {price}</span>
+          <span>EGP 150+</span>
         </div>
       </div>
       <div>
@@ -292,8 +292,8 @@ export default function HomePage() {
               <span className="italic text-gold-400">Your Story</span>
             </h1>
             <p className="text-cream-100/90 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-              More than makeup — each product holds a mood, a ritual, a quiet
-              confidence waiting to be drawn onto skin.
+              A touch of luxury, crafted for your glow ✨ <br></br> Made with
+              passion, by Nellure ✨💄
             </p>
             <Link
               to="/products"
@@ -309,14 +309,16 @@ export default function HomePage() {
       <section className="bg-cream-50 py-16">
         <div
           ref={catRef}
-          className={`w-[90%] mx-auto fade-up ${catVisible ? "visible" : ""}`}
+          className={`max-w-4xl mx-auto px-4 fade-up ${
+            catVisible ? "visible" : ""
+          }`}
         >
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {CATEGORIES.map((cat) => (
               <Link
                 key={cat.name}
                 to={cat.link}
-                className="group relative aspect-[4/5] overflow-hidden"
+                className="group relative aspect-square overflow-hidden"
               >
                 <img
                   src={cat.img}
@@ -339,7 +341,7 @@ export default function HomePage() {
       </section>
 
       {/* 3. BRAND HISTORY */}
-      <section id="brand-history" className="bg-cream-100 py-24 scroll-mt-28">
+      {/* <section id="brand-history" className="bg-cream-100 py-24 scroll-mt-28">
         <div
           ref={brandRef}
           className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 fade-up ${
@@ -386,13 +388,13 @@ export default function HomePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 4. SIGNATURE INVITATION */}
       <section className="relative bg-burgundy-900 text-cream-50 overflow-hidden">
         <div className="absolute right-0 top-0 w-1/3 h-full opacity-30 hidden lg:block">
           <img
-            src="https://images.unsplash.com/photo-1598346762291-aee88549193f?w=900&q=85"
+            src="/invitation.jpg"
             alt=""
             className="w-full h-full object-cover"
           />
@@ -479,17 +481,6 @@ export default function HomePage() {
                   Dermatologist-tested, never harsh
                 </p>
               </div>
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.3em] text-gold-600 mb-2">
-                  Formula
-                </p>
-                <h3 className="font-display text-4xl italic text-burgundy-900 mb-2">
-                  Skin-Loving
-                </h3>
-                <p className="text-sm text-burgundy-900/70 italic">
-                  Hydrating actives in every product
-                </p>
-              </div>
             </div>
 
             {/* Center image */}
@@ -506,24 +497,13 @@ export default function HomePage() {
             <div className="space-y-10">
               <div>
                 <p className="text-[10px] uppercase tracking-[0.3em] text-gold-600 mb-2">
-                  Finish
+                  Formula
                 </p>
                 <h3 className="font-display text-4xl italic text-burgundy-900 mb-2">
-                  Velvet Matte
+                  Skin-Loving
                 </h3>
                 <p className="text-sm text-burgundy-900/70 italic">
-                  Soft, never drying
-                </p>
-              </div>
-              <div>
-                <p className="text-[10px] uppercase tracking-[0.3em] text-gold-600 mb-2">
-                  Finish
-                </p>
-                <h3 className="font-display text-4xl italic text-burgundy-900 mb-2">
-                  Luminous Glow
-                </h3>
-                <p className="text-sm text-burgundy-900/70 italic">
-                  Lit from within, never glittery
+                  Hydrating actives in every product
                 </p>
               </div>
             </div>
@@ -543,11 +523,7 @@ export default function HomePage() {
       {/* DISCOVER ESSENCE (under Our Promise) */}
       <section className="relative bg-burgundy-900 text-cream-50 py-28 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
-          <img
-            src="https://images.unsplash.com/photo-1611080626919-7cf5a9dbab5b?w=1600&q=80"
-            alt=""
-            className="w-full h-full object-cover"
-          />
+          <img src="/sign.jpg" alt="" className="w-full h-full object-cover" />
         </div>
         <div
           ref={essRef}

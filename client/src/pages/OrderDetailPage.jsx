@@ -80,17 +80,17 @@ export default function OrderDetailPage() {
                   onError={e => { e.target.src = FALLBACK; }} />
                 <div className="flex-1">
                   <p className="font-medium text-burgundy-900 text-sm">{item.name}</p>
-                  <p className="text-burgundy-900/50 text-xs">{item.qty} × ${item.price?.toFixed(2)}</p>
+                  <p className="text-burgundy-900/50 text-xs">{item.qty} × EGP {item.price?.toFixed(2)}</p>
                 </div>
-                <p className="font-semibold text-burgundy-900">${(item.price * item.qty).toFixed(2)}</p>
+                <p className="font-semibold text-burgundy-900">EGP {(item.price * item.qty).toFixed(2)}</p>
               </div>
             ))}
           </div>
           <div className="border-t border-burgundy-900/10 mt-6 pt-4 space-y-2 text-sm">
-            <div className="flex justify-between text-burgundy-900/80"><span>Items</span><span>${order.itemsPrice?.toFixed(2)}</span></div>
-            <div className="flex justify-between text-burgundy-900/80"><span>Shipping</span><span>{order.shippingPrice === 0 ? 'Free' : `$${order.shippingPrice?.toFixed(2)}`}</span></div>
-            <div className="flex justify-between text-burgundy-900/80"><span>Tax</span><span>${order.taxPrice?.toFixed(2)}</span></div>
-            <div className="flex justify-between font-display text-xl text-burgundy-900 border-t border-burgundy-900/10 pt-2"><span>Total</span><span>${order.totalPrice?.toFixed(2)}</span></div>
+            <div className="flex justify-between text-burgundy-900/80"><span>Items</span><span>EGP {order.itemsPrice?.toFixed(2)}</span></div>
+            <div className="flex justify-between text-burgundy-900/80"><span>Shipping</span><span>{order.shippingPrice === 0 ? 'Free' : `EGP ${order.shippingPrice?.toFixed(2)}`}</span></div>
+            <div className="flex justify-between text-burgundy-900/80"><span>Tax</span><span>EGP {order.taxPrice?.toFixed(2)}</span></div>
+            <div className="flex justify-between font-display text-xl text-burgundy-900 border-t border-burgundy-900/10 pt-2"><span>Total</span><span>EGP {order.totalPrice?.toFixed(2)}</span></div>
           </div>
         </div>
 
